@@ -7,6 +7,7 @@ import {
 import Signup from './components/Signup';
 import Login from './components/Signin';
 import Navbar from './components/Navbar';
+import { AddFile } from './components/AddFile';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Navbar />
         <div className='container'>
           <Routes>
+            <Route exact path="/" element={<AddFile />} />
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/login" element={<Login />} />
           </Routes>
