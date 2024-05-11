@@ -32,6 +32,7 @@ const Signup = () => {
             navigate("/")
         }
         else {
+            alert("Please enter the details properly.")
         }
     }
     return (

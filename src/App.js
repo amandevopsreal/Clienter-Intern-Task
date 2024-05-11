@@ -7,21 +7,24 @@ import {
 import Signup from './components/Signup';
 import Login from './components/Signin';
 import Navbar from './components/Navbar';
-import { AddFile } from './components/AddFile';
+import { Home } from './components/Home';
+import FileState from './context/files/fileState';
 
 function App() {
   return (
     <>
-      <Router>
-        <Navbar />
-        <div className='container'>
-          <Routes>
-            <Route exact path="/" element={<AddFile />} />
-            <Route exact path="/signup" element={<Signup />} />
-            <Route exact path="/login" element={<Login />} />
-          </Routes>
-        </div>
-      </Router>
+      <FileState>
+        <Router>
+          <Navbar />
+          <div className='container'>
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/signup" element={<Signup />} />
+              <Route exact path="/login" element={<Login />} />
+            </Routes>
+          </div>
+        </Router>
+      </FileState>
     </>
   );
 }

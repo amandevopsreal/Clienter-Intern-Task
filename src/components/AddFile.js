@@ -1,18 +1,14 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useContext } from 'react'
+import fileContext from '../context/files/fileContext'
 export const AddFile = () => {
     const [title, setTitle] = useState()
     const [file, setFile] = useState()
+    const context = useContext(fileContext)
+    const { addFile } = context
     const handelSubmit = async (e) => {
         e.preventDefault()
-        const formData = new FormData()
-        formData.append("title", title)
-        formData.append("file", file)
-        console.log(title, file)
-        const result = await axios.post("http://localhost:5000/api/file/upload-files", formData, {
-            headers: { " Content-Type": "multipart/form-data" }
-        })
-        console.log(result)
+        addFile(title, file)
     }
     return (
         <div className='container my-3'>
